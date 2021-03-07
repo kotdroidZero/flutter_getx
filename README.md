@@ -2,15 +2,36 @@
 
 A new Flutter application.
 
-## Getting Started
+.Getx is fast , stable ,extra-light and powerful flutter framework for
+State Management
+Dependency Injection
+Route Management
 
-This project is a starting point for a Flutter application.
+.3 basic principles of getx
+Performance (better than any previous stms, less memory usage)
+Productivity (easy and simple syntax, saves development time)
+Organization (decoupling of components)
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+.Pillars of GetX
+State Management (GetBuilder(Simple), GetX(reactive))
+Route Management (Anything like snacbars,bottomsheet,dialog.routes all can be done without need of context
+Dependency Management
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+.Installation
+      Get: ^3.13.2  (use latest version)
+
+Features Of GetX now:
+
+. Snackbar : Get.snackbar() with lost of parameters to customize  the snackbar.
+. Dialog      : Get.defaultDialog() with lots of parameters to customize the dialog
+.BootomSheet: Get.bottomSheet() take your own widget and do anything you want. And lots of parameters to customize it
+. Changing Theme:      Get.changeTheme(ThemeData.light()),Get.changeTheme(ThemeData.dark())
+. Route Navigation: Get.to() with lots of additional parameters to move, first arg is your screen as constructor calling, there are parameters present to make that screen as full screen dialog , animation while transition , duration of animation etc.
+Get.to() ///move next screen,
+Get.off() ///replace this screen with current screen
+Get.offAll() //// replace this screen with all screens (every previous screen will be gone)
+Get.back(result:”back from home”) return to back screen also you can send data in result  args.
+
+
+
