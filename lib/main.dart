@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ap_getx/screens/next.dart';
+import 'package:flutter_ap_getx/screens/unknown.dart';
 import 'package:get/get.dart';
 
 import 'screens/home.dart';
+import 'screens/profile.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,6 +14,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      initialRoute: '/',
+      defaultTransition: Transition.zoom,
+      getPages: [
+        GetPage(name: '/', page: () => MyApp()),
+        GetPage(name: '/profile', page: () => Profile()),
+        GetPage(
+          name: '/next/:someValueYouWantToPass',
+          page: () => Next(),
+          transition: Transition.leftToRight,
+        ),
+      ],
+      unknownRoute: GetPage(page: () => Unknown(), name: 'notFound'),
       home: Scaffold(
         appBar: AppBar(
           title: Text('Main'),
@@ -42,7 +57,7 @@ class MyApp extends StatelessWidget {
                 onPressed: () {
                   bottomSheet();
                 },
-                child: Text('Show BottmSheet'),
+                child: Text('Show BottomSheet'),
               ),
               RaisedButton(
                 onPressed: () async {
@@ -59,6 +74,13 @@ class MyApp extends StatelessWidget {
                 },
                 child: Text('Go to home '),
               ),
+              RaisedButton(
+                onPressed: () {
+                  // Get.toNamed('/profile');
+                  Get.toNamed('/profile?user=Pushkar&job=mobile Developer');
+                },
+                child: Text('Navigate to profile with Named Route'),
+              )
             ],
           ),
         ),
