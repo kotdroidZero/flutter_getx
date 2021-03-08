@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ap_getx/screens/next.dart';
+import 'package:flutter_ap_getx/screens/payment.dart';
 import 'package:flutter_ap_getx/screens/unknown.dart';
 import 'package:get/get.dart';
 
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
       defaultTransition: Transition.zoom,
       getPages: [
         GetPage(name: '/', page: () => MyApp()),
+        GetPage(name: '/payment', page: () => Payment()),
         GetPage(name: '/profile', page: () => Profile()),
         GetPage(
           name: '/next/:someValueYouWantToPass',
@@ -80,6 +82,12 @@ class MyApp extends StatelessWidget {
                   Get.toNamed('/profile?user=Pushkar&job=mobile Developer');
                 },
                 child: Text('Navigate to profile with Named Route'),
+              ),
+              RaisedButton(
+                onPressed: () {
+                  Get.toNamed('/payment');
+                },
+                child: Text('Navigate to payment with Named Route'),
               )
             ],
           ),
