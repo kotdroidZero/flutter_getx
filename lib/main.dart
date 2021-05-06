@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ap_getx/models/message.dart';
+import 'package:flutter_ap_getx/screens/locale_ex.dart';
 import 'package:flutter_ap_getx/screens/next.dart';
 import 'package:flutter_ap_getx/screens/payment.dart';
 import 'package:flutter_ap_getx/screens/unknown.dart';
+import 'package:flutter_ap_getx/screens/workers.dart';
 import 'package:get/get.dart';
 
 import 'screens/home.dart';
 import 'screens/profile.dart';
+import 'screens/state_mgmt.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,11 +20,18 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       initialRoute: '/',
+      translations: Message(),
       defaultTransition: Transition.zoom,
+      locale: Locale('en', "US"),
+      fallbackLocale: Locale('en', "US"),
       getPages: [
         GetPage(name: '/', page: () => MyApp()),
         GetPage(name: '/payment', page: () => Payment()),
+        GetPage(name: '/locale', page: () => LocalExample()),
         GetPage(name: '/profile', page: () => Profile()),
+        GetPage(name: '/profile', page: () => Profile()),
+        GetPage(name: '/workers', page: () => WorkersScreen()),
+        GetPage(name: '/stm', page: () => StateManagementScreen()),
         GetPage(
           name: '/next/:someValueYouWantToPass',
           page: () => Next(),
@@ -88,6 +99,24 @@ class MyApp extends StatelessWidget {
                   Get.toNamed('/payment');
                 },
                 child: Text('Navigate to payment with Named Route'),
+              ),
+              RaisedButton(
+                onPressed: () {
+                  Get.toNamed('/stm');
+                },
+                child: Text('State Management'),
+              ),
+              RaisedButton(
+                onPressed: () {
+                  Get.toNamed('/workers');
+                },
+                child: Text('Workers'),
+              ),
+              RaisedButton(
+                onPressed: () {
+                  Get.toNamed('/locale');
+                },
+                child: Text('Locale'),
               )
             ],
           ),
